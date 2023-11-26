@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.8-jdk-slim
-COPY --from=build /target/app.linertec-0.0.1-SNAPSHOT.jar app.linertec.jar
+COPY --from=build /target/api.linertec-0.0.1-SNAPSHOT.jar api.linertec.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.linertec.jar"]
+ENTRYPOINT ["java","-jar","api.linertec.jar"]
