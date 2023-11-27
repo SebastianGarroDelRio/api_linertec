@@ -33,7 +33,7 @@ public class CategoriaController {
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity<?> listaCategorias() {
-		List<Categoria> lista = service.listaCategoria();
+		List<Categoria> lista = service.listaTodos();
 		if (lista.size() > 0) {
 			return new ResponseEntity<List<Categoria>>(lista, HttpStatus.OK);
 		}

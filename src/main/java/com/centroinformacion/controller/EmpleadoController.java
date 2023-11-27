@@ -33,7 +33,7 @@ public class EmpleadoController {
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity<?> listaEmpleados() {
-		List<Empleado> lista = service.listaEmpleado();
+		List<Empleado> lista = service.listaTodos();
 		if (lista.size() > 0) {
 			return new ResponseEntity<List<Empleado>>(lista, HttpStatus.OK);
 		}

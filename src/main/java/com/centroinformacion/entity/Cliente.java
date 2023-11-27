@@ -1,38 +1,39 @@
-package com.centroinformacion.entity;	
+package com.centroinformacion.entity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
+@Table(name="cliente")
 @Getter
 @Setter
-@Entity
-@Table(name = "productos")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Producto {
+public class Cliente {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idproducto")
-	private Integer idproducto;
+	@Column(name="idcliente")
+	private Integer idcliente;
 	
-	@Column(name = "descripcion", nullable = false)
-	private String descripcion;
+	@Column(name = "nombre")
+	private String nombre;
 	
-	@Column(name = "stock")
-	private String stock;
+	@Column(name = "apellido")
+	private String apellido;
 	
-	@ManyToOne
-	@JoinColumn(name="idcategoria")
-	private Categoria categoria;
+	@Column(name = "dni", nullable = false, unique = true)
+	private String dni;
+	
+	@Column(name = "correo", nullable = false, unique = true)
+	private String correo;
 
 }

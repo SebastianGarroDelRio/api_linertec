@@ -6,7 +6,7 @@ import com.centroinformacion.entity.Usuario;
 
 public interface UsuarioService {
 	
-	public abstract List<Usuario> listaUsuario();
+	public abstract List<Usuario> listaTodos();
 	public abstract Usuario insertaActualizaUsuario(Usuario usuario);
 	public abstract void eliminaUsuario(int idusuario);
 	

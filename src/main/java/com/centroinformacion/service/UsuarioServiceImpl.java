@@ -15,7 +15,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	private UsuarioRepository repository;
 
 	@Override
-	public List<Usuario> listaUsuario() {
+	public List<Usuario> listaTodos() {
 		return repository.findAll();
 	}
 

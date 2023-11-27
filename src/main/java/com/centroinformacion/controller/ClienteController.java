@@ -1,4 +1,5 @@
 package com.centroinformacion.controller;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,34 +18,34 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.centroinformacion.entity.Proveedor;
-import com.centroinformacion.service.ProveedorService;
+import com.centroinformacion.entity.Cliente;
+import com.centroinformacion.service.ClienteService;
 import com.centroinformacion.util.Constantes;
 
 @RestController
-@RequestMapping("/api/proveedor")
-@CrossOrigin(origins = "*")
-public class ProveedorController {
-
-	@Autowired
-	private ProveedorService service;
+@RequestMapping("/api/cliente")
+@CrossOrigin("*")
+public class ClienteController {
 	
+	@Autowired
+	private ClienteService service;
+
 	@GetMapping
 	@ResponseBody
-	public ResponseEntity<?> listaProveedores() {
-		List<Proveedor> lista = service.listaTodos();
+	public ResponseEntity<?> listaClientes() {
+		List<Cliente> lista = service.listaTodos();
 		if (lista.size() > 0) {
-			return new ResponseEntity<List<Proveedor>>(lista, HttpStatus.OK);
+			return new ResponseEntity<List<Cliente>>(lista, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(Constantes.MENSAJE_NO_EXISTE_REGISTROS, HttpStatus.NOT_FOUND);
 	}
 
-	@PostMapping("/RegistraProveedor")
+	@PostMapping("/RegistraCliente")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> insertaProveedor(@RequestBody Proveedor proveedor) {
+	public ResponseEntity<Map<String, Object>> insertaCliente(@RequestBody Cliente cliente) {
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			Proveedor objSalida =  service.insertaActualizaProveedor(proveedor);
+			Cliente objSalida = service.insertaActualizaCliente(cliente);
 			if (objSalida == null) {
 				salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
 			} else {
@@ -56,13 +57,13 @@ public class ProveedorController {
 		}
 		return ResponseEntity.ok(salida);
 	}
-	
-	@PutMapping("/ActualizaProveedor")
+
+	@PutMapping("/ActualizaCliente")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> actualizaProveedor(@RequestBody Proveedor proveedor) {
+	public ResponseEntity<Map<String, Object>> actualizaCliente(@RequestBody Cliente cliente) {
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			Proveedor objSalida =  service.insertaActualizaProveedor(proveedor);
+			Cliente objSalida = service.insertaActualizaCliente(cliente);
 			if (objSalida == null) {
 				salida.put("mensaje", Constantes.MENSAJE_ACT_ERROR);
 			} else {
@@ -74,13 +75,13 @@ public class ProveedorController {
 		}
 		return ResponseEntity.ok(salida);
 	}
-	
-	@DeleteMapping("/EliminaProveedor/{id}")
+
+	@DeleteMapping("/EliminaCliente/{id}")
 	@ResponseBody
-	public ResponseEntity<Map<String, Object>> eliminaProveedor(@PathVariable("id") int idproveedor) {
+	public ResponseEntity<Map<String, Object>> eliminaCliente(@PathVariable("id") int idcliente) {
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			service.eliminaProveedor(idproveedor);
+			service.eliminaCliente(idcliente);
 			salida.put("mensaje", Constantes.MENSAJE_ELI_EXITOSO);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,4 +89,5 @@ public class ProveedorController {
 		}
 		return ResponseEntity.ok(salida);
 	}
+	
 }

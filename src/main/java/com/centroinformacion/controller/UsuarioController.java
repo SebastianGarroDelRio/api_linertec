@@ -34,7 +34,7 @@ public class UsuarioController {
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity<?> listaUsuarios() {
-		List<Usuario> lista = service.listaUsuario();
+		List<Usuario> lista = service.listaTodos();
 		if (lista.size() > 0) {
 			return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
 		}

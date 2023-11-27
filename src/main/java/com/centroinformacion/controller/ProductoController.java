@@ -33,7 +33,7 @@ public class ProductoController {
 	@GetMapping
 	@ResponseBody
 	public ResponseEntity<?> listaProductos() {
-		List<Producto> lista = service.listaProducto();
+		List<Producto> lista = service.listaTodos();
 		if (lista.size() > 0) {
 			return new ResponseEntity<List<Producto>>(lista, HttpStatus.OK);
 		}

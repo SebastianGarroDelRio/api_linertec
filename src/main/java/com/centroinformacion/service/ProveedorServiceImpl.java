@@ -15,7 +15,7 @@ public class ProveedorServiceImpl implements ProveedorService{
 	private ProveedorRepository repository;
 
 	@Override
-	public List<Proveedor> listaProveedor() {
+	public List<Proveedor> listaTodos() {
 		return repository.findAll();
 	}
 

@@ -6,7 +6,7 @@ import com.centroinformacion.entity.Producto;
 
 public interface ProductoService {
 	
-	public abstract List<Producto> listaProducto();
+	public abstract List<Producto> listaTodos();
 	public abstract Producto insertaActualizaProducto(Producto producto);
 	public abstract void eliminaProducto(int idproducto);
 
