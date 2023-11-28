@@ -24,7 +24,7 @@ import com.centroinformacion.util.Constantes;
 
 @RestController
 @RequestMapping("/api/pedido")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class PedidoController {
 	
 	@Autowired

@@ -24,7 +24,7 @@ import com.centroinformacion.util.Constantes;
 
 @RestController
 @RequestMapping("/api/ubigeo")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class UbigeoController {
 	
 	@Autowired

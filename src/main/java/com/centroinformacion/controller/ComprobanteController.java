@@ -24,7 +24,7 @@ import com.centroinformacion.util.Constantes;
 
 @RestController
 @RequestMapping("/api/comprobante")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class ComprobanteController {
 	
 	@Autowired
