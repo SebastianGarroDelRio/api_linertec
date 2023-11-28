@@ -1,6 +1,8 @@
-package com.centroinformacion.entity;	
+package com.centroinformacion.entity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,54 +14,43 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name = "productos")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Producto {
+@Table(name="pedido")
+public class Pedido {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idproducto")
-	private Integer idproducto;
-	
-	@Column(name = "descripcion", nullable = false)
-	private String descripcion;
+	@Column(name="idpedido")
+	private Integer idpedido;
 	
 	@Column(name = "estado")
-	private int estado;
+	private String estado;
 	
 	/*
 	 * @Temporal(TemporalType.TIMESTAMP)
 	 * 
-	 * @Column(name = "fechavigencia") private Date fechaVigencia;
+	 * @Column(name = "fechaentrega") private Date fechaEntrega;
 	 * 
 	 * @Temporal(TemporalType.TIMESTAMP)
 	 * 
 	 * @Column(name = "fecharegistro") private Date fechaRegistro;
 	 */
 	
-	@Column(name = "precio")
-	private double precio;
+	/*
+	 * @Temporal(TemporalType.TIME)
+	 * 
+	 * @JsonFormat(shape = JsonFormat.Shape.STRING) private Date horaEntrega;
+	 */
 	
-	@Column(name = "serie")
-	private String serie;
+	@Column(name = "lugar")
+	private String lugarEntrega;
 	
-	@Column(name = "stock")
-	private String stock;
-	
-	@ManyToOne
-	@JoinColumn(name="idcategoria")
-	private Categoria categoria;
-	
-	@ManyToOne
-	@JoinColumn(name="idmarca")
-	private Marca marca;
-	
-	@ManyToOne
-	@JoinColumn(name="idpais")
-	private Pais pais;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="idcliente")
+	private Cliente cliente;
 
 }

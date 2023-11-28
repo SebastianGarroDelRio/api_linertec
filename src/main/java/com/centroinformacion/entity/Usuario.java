@@ -7,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,18 +26,28 @@ public class Usuario {
 	@Column(name = "idusuario")
 	private Integer idusuario;
 	
+	/*
+	 * @Temporal(TemporalType.TIMESTAMP)
+	 * 
+	 * @Column(name = "fechanacimiento") private Date fechaNacimiento;
+	 * 
+	 * @Temporal(TemporalType.TIMESTAMP)
+	 * 
+	 * @Column(name = "fecharegistro") private Date fechaRegistro;
+	 */
+	
 	@Column(name = "username", length = 50, nullable = false)
 	private String username;
 	
 	@Column(name = "password", nullable = false)
 	private String password;
 	
-	@OneToOne
-	@JoinColumn(name="idempleado")
-	private Empleado empleado;
+	@ManyToOne
+	@JoinColumn(name="idubigeo")
+	private Ubigeo ubigeo;
 	
 	@ManyToOne
-	@JoinColumn(name="idrol")
-	private Rol rol;
+	@JoinColumn(name="iddocumento")
+	private Documento documento;
 	
 }

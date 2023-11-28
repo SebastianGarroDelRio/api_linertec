@@ -8,6 +8,6 @@ public interface ProveedorService {
 	
 	public abstract List<Proveedor> listaTodos();
 	public abstract Proveedor insertaActualizaProveedor(Proveedor proveedor);
-	public abstract void eliminaProveedor(int idProveedor);
+	public abstract void eliminaProveedor(int idproveedor);
 
 }

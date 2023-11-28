@@ -26,14 +26,23 @@ public class Proveedor {
 	@Column(name = "idproveedor")
 	private Integer idproveedor;
 	
-	@Column(name = "nombre", nullable = false)
+	@Column(name = "nombre")
 	private String nombre;
 	
-	@Column(name = "telefono", unique = true, nullable = false)
+	@Column(name = "telefono")
 	private String telefono;
 	
-	@Column(name = "correo", unique = true, nullable = false)
+	@Column(name = "correo")
 	private String correo;
+	
+	@Column(name = "direccion")
+	private String direccion;
+	
+	/*
+	 * @Temporal(TemporalType.TIMESTAMP)
+	 * 
+	 * @Column(name = "fecharegistro") private Date fechaRegistro;
+	 */
 	
 	@Column(name = "numerodocumento", unique = true, nullable = false)
 	private String numerodocumento;
@@ -41,5 +50,9 @@ public class Proveedor {
 	@ManyToOne
 	@JoinColumn(name="iddocumento")
 	private Documento documento;
+	
+	@ManyToOne
+	@JoinColumn(name="idubigeo")
+	private Ubigeo ubigeo;
 	
 }
