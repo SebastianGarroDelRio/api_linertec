@@ -19,14 +19,4 @@ public class PaisServiceImpl implements PaisService{
 		return repository.findAll();
 	}
 
-	@Override
-	public Pais insertaActualizaPais(Pais pais) {
-		return repository.save(pais);
-	}
-
-	@Override
-	public void eliminaPais(int idpais) {
-		repository.deleteById(idpais);
-	}
-
 }
